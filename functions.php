@@ -3,10 +3,25 @@
 function customwptheme_theme_support(){
     // Adds dynamic title tag support
     add_theme_support('title-tag');
+    add_theme_support('custom-logo');
 }
 
 add_action('after_theme_setup', 'customwptheme_theme_support');
     
+
+function customwptheme_menus(){
+    
+    $location = array(
+        'primary' => "Desktop Primary Left Sidebar",
+        'footer' => "Footer Menu Items"
+    );
+
+    register_nav_menus($location);
+}
+
+// "init" is a hook into the initialize process
+add_action('init', 'customwptheme_menus'); 
+
 
 function customwptheme_register_styles(){
 
